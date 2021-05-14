@@ -6,8 +6,9 @@ function regNumbers(){
     var forBellville={};
     
     function setRegNumber(reg){
+        if(!regList[reg]){
         regList=reg;
-
+        }
 
     }
 
@@ -17,7 +18,7 @@ function regNumbers(){
     }
 
     function setTown(regList){
-        for(var i=0;i>regList.length;i++){
+        for(var i=0;i<regList.length;i++){
  
         if(myList[i].startsWith('CA')){
             forCapeTown.push(myList[i]);
