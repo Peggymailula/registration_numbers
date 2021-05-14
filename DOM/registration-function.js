@@ -1,9 +1,9 @@
 function regNumbers(){
 
-    var regList={};
-    var forCapeTown={};
-    var forStellenbosch={};
-    var forBellville={};
+    var regList=[];
+    var forCapeTown=[];
+    var forStellenbosch=[];
+    var forBellville=[];
     
     function setRegNumber(reg){
         if(!regList[reg]){
