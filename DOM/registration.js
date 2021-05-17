@@ -63,54 +63,66 @@ function showTown(){
       var towns = checkedRadioBtn.value; // the value of the checked radio button
      
   }
-
+  var towning = document.createElement("li");
+ // var towning = document.createElement("li");
    for(var i=0;i<regList.length;i++){
  
-     if(regList[i].startsWith('CA')){
-         forCapeTown.push(regList[i]); //pushes all reg plates from cpt to a seperate array
-         
+     if(towns ==='Cape Town' && regList[i].startsWith('CA')){
+      towning=document.createTextNode(regList[i]);
+    towning.innerText=(regList[i]);
+      uls.appendChild(towning);
+      console.log(towning);
+      
     }
 
-     if(regList[i].startsWith('CY')){
-        forBellville.push(regList[i]);//pushes all reg plates from Bellville to a seperate array
-   }
+    if(towns ==='Bellville' && regList[i].startsWith('CY')){
+      towning=document.createTextNode(regList[i]);
+    towning.innerText=(regList[i]);
+      uls.appendChild(towning);
+      console.log(towning);
+      
+    }
 
-     if(regList[i].startsWith('CL')){
-        forStellenbosch.push(regList[i]);//pushes all reg plates from Stellenbosch to a seperate array
+    if(towns ==='Stellenbosch' && regList[i].startsWith('CL')){
+      towning=document.createTextNode(regList[i]);
+    towning.innerText=(regList[i]);
+      uls.appendChild(towning);
+      console.log(towning);
+      
     }}
 
-    var towning = document.createElement("li");
+    uncheck();
 
 
-    if(towns ==='Cape Town'){
-      for(var x=0; x<forCapeTown.length;x++){
+  //   // if(towns ==='Cape Town' && regList[i].startsWith('CA') ){
 
-         Cape= forCapeTown[x];
+  //   //   towning.innerText= regList[i];
+     
         
-           //uls.appendChild(towning);      
+  //   //        //uls.appendChild(towning);      
       
-     }
+  //   //  }
 
-     towning.innerText= Cape;
-     console.log(Cape);
+  //   // towning.innerText= Cape;
+  //  //  console.log(forCapeTown);
 
-         uls.appendChild(towning);
-    }
+  //        uls.appendChild(towning);
+    
 
-      if(towns ==='Stellenbosch'){
-      //     //towning.appendChild(forCapeTown);
-          towning.innerHTML= forStellenbosch;
-           uls.appendChild(towning);
-         }
+  //     if(towns ==='Stellenbosch'){
+  //     //     //towning.appendChild(forCapeTown);
+  //         towning.innerHTML= forStellenbosch;
+  //          uls.appendChild(towning);
+  //        }
 
-         if(towns ==='Bellville'){
+  //        if(towns ==='Bellville'){
           
-              towning.innerHTML= forBellville;
+  //             towning.innerHTML= forBellville;
           
-               uls.appendChild(towning);
-             }
+  //              uls.appendChild(towning);
+  //            }
 
-             uncheck();
+            
   
 
   // var showing = document.createElement("li");
