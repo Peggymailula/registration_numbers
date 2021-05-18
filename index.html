@@ -12,11 +12,11 @@
 <body>
     <h1>Registration Number:</h1>
     
-    
+    <form>
     <div class="row center">
         <div class="col-12">
             <div class="input-group">
-                <input type="text" class="form-control inputText" id="candidate" required placeholder="Enter Registration number here">
+                <input type="text" class="form-control inputText" id="candidate" pattern="(^[A-Z]{2,3}+)([0-9])" text="Please use correct format" required placeholder="Enter Registration number here">
                 <div class="input-group-append">
 
         </div>
@@ -24,7 +24,7 @@
                 <button class="addBTn" onclick="addItem()">Add</button> 
         </div>
         
-        <ul class="col-12" id="dynamic-list" > 
+        <ul class="col-12" id="dynamic-list"  > 
          
         </ul>
     </div>
@@ -60,7 +60,7 @@
         <div class="col-12">
           <button class="showBtn" onclick="showTown()">Show</button> 
           <div class="display" id="displaying"></div>
-          <ul id="showMe">
+          <ul id="showMe" class="li">
 
           </ul>
   
@@ -75,7 +75,7 @@
 
       </div>
       </div>
-     
+    </form>
      
       
     

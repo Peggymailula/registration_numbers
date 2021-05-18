@@ -11,16 +11,17 @@ var uls = document.getElementById("showMe");
 
 
 var regList = [];
-var forBellville=[];
-var forStellenbosch=[];
-var Cape;
+var regPlate= regNumbers();
 
-// if (localStorage['registration']) {
 
-//   regList = JSON.parse(localStorage.getItem('registration'));
 
-// }
-// var myPlate = regNumbers();
+
+ if (localStorage['registration']) {
+
+   regList = JSON.parse(localStorage.getItem('registration'));
+
+ }
+
 // myPlate.setRegNumber(regList)
 
 
@@ -40,8 +41,10 @@ function addItem() {
  
   
     var list = document.createElement("li"); // variable used to make my variables a list
+    regPlate.setRegNumber(inputText.value);
     regList.push(inputText.value); // pushes all reg plates into array
-    list.innerText = inputText.value; //displays all reg plates after "add button" is called
+    localStorage.setItem('registration', JSON.stringify(regList));
+    list.innerText = regPlate.getRegNumber(); //displays all reg plates after "add button" is called
 
     ul.appendChild(list); // appends my list to the UL 
   
@@ -56,36 +59,42 @@ var uls = document.getElementById("showMe"); //variable to link to my unordered 
 
 
 function showTown(){
-  var forCapeTown=[];
-
+ 
   var checkedRadioBtn = document.querySelector("input[name='town']:checked");
   if (checkedRadioBtn){
       var towns = checkedRadioBtn.value; // the value of the checked radio button
      
   }
-  var towning = document.createElement("li");
+ // var towning = document.createElement("li");
  // var towning = document.createElement("li");
    for(var i=0;i<regList.length;i++){
  
      if(towns ==='Cape Town' && regList[i].startsWith('CA')){
-      towning=document.createTextNode(regList[i]);
-    towning.innerText=(regList[i]);
+      var towning = document.createElement("li");
+      var Cape=document.createTextNode(regList[i]);
+    //towning.innerText=(regList[i]);
+    towning.appendChild(Cape);
       uls.appendChild(towning);
       console.log(towning);
       
     }
 
+    
     if(towns ==='Bellville' && regList[i].startsWith('CY')){
-      towning=document.createTextNode(regList[i]);
-    towning.innerText=(regList[i]);
+       towning = document.createElement("li");
+      Cape=document.createTextNode(regList[i]);
+    //towning.innerText=(regList[i]);
+    towning.appendChild(Cape);
       uls.appendChild(towning);
       console.log(towning);
       
     }
 
     if(towns ==='Stellenbosch' && regList[i].startsWith('CL')){
-      towning=document.createTextNode(regList[i]);
-    towning.innerText=(regList[i]);
+       towning = document.createElement("li");
+       Cape=document.createTextNode(regList[i]);
+    //towning.innerText=(regList[i]);
+    towning.appendChild(Cape);
       uls.appendChild(towning);
       console.log(towning);
       

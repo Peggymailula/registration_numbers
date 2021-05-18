@@ -4,6 +4,7 @@ function regNumbers(){
     var forCapeTown=[];
     var forStellenbosch=[];
     var forBellville=[];
+   
     
     function setRegNumber(reg){
         if(!regList[reg]){
@@ -19,53 +20,46 @@ function regNumbers(){
 
     function setTown(regList){
         for(var i=0;i<regList.length;i++){
- 
-        if(myList[i].startsWith('CA')){
-            forCapeTown.push(myList[i]);
-        }
+     if(town ==='Cape Town' && regList[i].startsWith('CA')){
+         return regList[i];}
 
-       else if(myList[i].startsWith('CY')){
-            forBellville.push(myList[i]);
-        }
+         if(town ==='Bellville' && regList[i].startsWith('CY')){
+            return regList[i];}
 
-        else if(myList[i].startsWith('Cl')){
-            forStellenbosch.push(myList[i]);
-        }
+            if(town ==='Stellenbosch' && regList[i].startsWith('CL')){
+                return regList[i];}
     }
     }
 
-    function getTown(value){
-        if(value=='Cape Town'){
-            return forCapeTown;
-        }
-        else if (value== 'Stellenbosch'){
-            return forStellenbosch;
-        }
-        else if (value == 'Bellville')
-        {
-            return forBellville
-        }
-    }
-    function CapeTown(){
-        return forCapeTown;
-    }
+    // function getTown(value){
+    //     if(value=='Cape Town'){
+    //         return forCapeTown;
+    //     }
+    //     else if (value== 'Stellenbosch'){
+    //         return forStellenbosch;
+    //     }
+    //     else if (value == 'Bellville')
+    //     {
+    //         return forBellville
+    //     }
+    // }
+    // function CapeTown(){
+    //     return forCapeTown;
+    // }
 
-    function Stellenbosch(){
-        return forStellenbosch;
-    }
+    // function Stellenbosch(){
+    //     return forStellenbosch;
+    // }
 
-    function Bellville(){
-        return forBellville;
-    }
+    // function Bellville(){
+    //     return forBellville;
+    // }
 
     return {
         setRegNumber,
         getRegNumber,
-        setTown,
-        getTown,
-        CapeTown,
-        Stellenbosch,
-        Bellville
+        setTown
+       
 
     }
 }
