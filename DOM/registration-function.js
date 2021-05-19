@@ -4,30 +4,41 @@ function regNumbers(){
     var forCapeTown=[];
     var forStellenbosch=[];
     var forBellville=[];
+    var validated=[];
+   
+    pattern1=/[A-Z]{2}   [0-9]{3,8}/;
+    pattern2=/[A-Z]{3}   [0-9]{3,8}/;
+    pattern3=/[A-Z]{2}   [0-9]{3}-[0-9]{3}/;
+
+    var registrations = []
    
     
     function setRegNumber(reg){
-        if(!regList[reg]){
-        regList=reg;
-        }
-
+        
+        registrations = reg;
+        registrations= registrations.match(pattern2) || registrations.match(pattern3) || registrations.match(pattern1)
     }
-
+    
     function getRegNumber(){
-        return regList;
 
+        return  registrations ;
     }
+    
+ 
+    
 
-    function setTown(regList){
-        for(var i=0;i<regList.length;i++){
-     if(town ==='Cape Town' && regList[i].startsWith('CA')){
-         return regList[i];}
+    function setTown(){
 
-         if(town ==='Bellville' && regList[i].startsWith('CY')){
-            return regList[i];}
 
-            if(town ==='Stellenbosch' && regList[i].startsWith('CL')){
-                return regList[i];}
+        for(var i=0;i<registrations.length;i++){
+     if(town ==='Cape Town' && registrations[i].startsWith('CA')){
+         return registrations[i];}
+
+         if(town ==='Bellville' && registrations[i].startsWith('CY')){
+            return registrations[i];}
+
+            if(town ==='Stellenbosch' && registrations[i].startsWith('CL')){
+                return registrations[i];}
     }
     }
 

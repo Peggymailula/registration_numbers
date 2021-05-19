@@ -1,8 +1,8 @@
 var inputText = document.querySelector(".inputText");
 // // var addBtn = document.querySelector(".addBTn");
-//  var numberPlate= document.querySelector(".plate");
-town=document.querySelector(".radio");
-display= document.querySelector(".display");
+var message= document.getElementById('message');
+var town=document.querySelector(".radio");
+var display= document.querySelector(".display");
 var radioo = document.querySelector(".radio")
 
 var ul = document.getElementById("dynamic-list");
@@ -16,27 +16,43 @@ var regPlate= regNumbers();
 
 
 
- if (localStorage['registration']) {
+ if (localStorage.getItem('registration')==null) {
 
-   regList = JSON.parse(localStorage.getItem('registration'));
+   localStorage.setItem('registration','[]');
 
  }
 
 // myPlate.setRegNumber(regList)
 
+regList = JSON.parse(localStorage.getItem('registration'));
+regList.push(inputText.value);
 
-
-
+// function show(){
+//   if(localStorage.getItem('registration') != null){
+//     list.innerText = regPlate.getRegNumber();
+//   }
+// }
 function clearInput() {
   inputText.value = ""; // Clears the text field after "add" button is pressed
 }
 
 function uncheck(){
-  checkedRadioBtn = document.querySelector("input[name='town']:checked").checked = false;
+  checkedRadioBtn = null;
 }
 
 
 function addItem() {
+
+
+  if(inputText.value == "" || inputText.value == null){
+    
+    var t3 = setTimeout(function () { message.innerText= "Please enter a valid registration number";}, 0);
+    
+    var t2 =  setTimeout(function () {  message.innerText= ""; }, 3000) ;
+ }
+
+ 
+
   if (inputText.value != "") {
  
   
@@ -44,6 +60,7 @@ function addItem() {
     regPlate.setRegNumber(inputText.value);
     regList.push(inputText.value); // pushes all reg plates into array
     localStorage.setItem('registration', JSON.stringify(regList));
+    
     list.innerText = regPlate.getRegNumber(); //displays all reg plates after "add button" is called
 
     ul.appendChild(list); // appends my list to the UL 
@@ -52,14 +69,23 @@ function addItem() {
     
   }
   else {
+    
     return false; // Function will not work if text field does not have a value
   }
 }
+
+
+
 var uls = document.getElementById("showMe"); //variable to link to my unordered list section
 
 
 function showTown(){
- 
+  if(checkedRadioBtn==null){
+    var t1 = setTimeout(function () { message.innerText= "Please choose your city of choice";}, 0);
+    
+    var t4 =  setTimeout(function () {  message.innerText= ""; }, 3000) ;
+   
+  }
   var checkedRadioBtn = document.querySelector("input[name='town']:checked");
   if (checkedRadioBtn){
       var towns = checkedRadioBtn.value; // the value of the checked radio button
@@ -103,47 +129,13 @@ function showTown(){
     uncheck();
 
 
-  //   // if(towns ==='Cape Town' && regList[i].startsWith('CA') ){
-
-  //   //   towning.innerText= regList[i];
-     
-        
-  //   //        //uls.appendChild(towning);      
-      
-  //   //  }
-
-  //   // towning.innerText= Cape;
-  //  //  console.log(forCapeTown);
-
-  //        uls.appendChild(towning);
-    
-
-  //     if(towns ==='Stellenbosch'){
-  //     //     //towning.appendChild(forCapeTown);
-  //         towning.innerHTML= forStellenbosch;
-  //          uls.appendChild(towning);
-  //        }
-
-  //        if(towns ==='Bellville'){
-          
-  //             towning.innerHTML= forBellville;
-          
-  //              uls.appendChild(towning);
-  //            }
-
-            
-  
-
-  // var showing = document.createElement("li");
-  // showing.setAttribute('id', inputText.value);
-  // myPlate.setRegNumber(inputText.value);
-  // showing.innerText = myPlate.getRegNumber();
-  // myPlate.getRegNumber();
-  // myPlate.getTown(towns);
-  // showing.appendChild(document.createTextNode(myPlate.setTown(inputText.value)));
-
-  //myPlate.setTown(inputText.value);
     }
 
+    function showData(){
+      if(localStorage.getItem('registration') != null){
+        document.getElementById("dynamic-list").innerHTML=JSON.parse(localStorage.getItem('registration'));
+      }
+
+    }
 
   
