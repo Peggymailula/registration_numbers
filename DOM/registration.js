@@ -133,11 +133,14 @@ function showTown(){
 
     }
 
-
-    // if(localStorage.getItem('registration') != null){
-    //   document.getElementById("dynamic-list").innerHTML=JSON.parse(localStorage.getItem('registration'));
-    // }
-
+  function showData(){
+    if(localStorage.getItem('registration') != null){
+     
+      document.getElementById("dynamic-list").innerHTML=JSON.parse(localStorage.getItem('registration'));
+      
+    
+    }
+  }
     function resetData(){
      message.classList.remove('red');
      message.classList.add('green');
