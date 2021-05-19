@@ -37,7 +37,7 @@ function clearInput() {
 }
 
 function uncheck(){
-  checkedRadioBtn = null;
+  checkedRadioBtn == null;
 }
 
 
@@ -45,7 +45,7 @@ function addItem() {
 
 
   if(inputText.value == "" || inputText.value == null){
-    
+    message.classList.add('red');
     var t3 = setTimeout(function () { message.innerText= "Please enter a valid registration number";}, 0);
     
     var t2 =  setTimeout(function () {  message.innerText= ""; }, 3000) ;
@@ -65,7 +65,8 @@ function addItem() {
 
     ul.appendChild(list); // appends my list to the UL 
   
-    clearInput(); //Clears the text field
+    clearInput();
+     //Clears the text field
     
   }
   else {
@@ -80,12 +81,13 @@ var uls = document.getElementById("showMe"); //variable to link to my unordered 
 
 
 function showTown(){
-  if(checkedRadioBtn==null){
-    var t1 = setTimeout(function () { message.innerText= "Please choose your city of choice";}, 0);
+  // if(checkedRadioBtn==null){
+  //   message.classList.add('red');
+  //   var t1 = setTimeout(function () { message.innerText= "Please choose your city of choice";}, 0);
     
-    var t4 =  setTimeout(function () {  message.innerText= ""; }, 3000) ;
+  //   var t4 =  setTimeout(function () {  message.innerText= ""; }, 3000) ;
    
-  }
+  // }
   var checkedRadioBtn = document.querySelector("input[name='town']:checked");
   if (checkedRadioBtn){
       var towns = checkedRadioBtn.value; // the value of the checked radio button
@@ -126,16 +128,24 @@ function showTown(){
       
     }}
 
-    uncheck();
+    checkedRadioBtn.checked=false;
 
 
     }
 
-    function showData(){
-      if(localStorage.getItem('registration') != null){
-        document.getElementById("dynamic-list").innerHTML=JSON.parse(localStorage.getItem('registration'));
-      }
+
+    // if(localStorage.getItem('registration') != null){
+    //   document.getElementById("dynamic-list").innerHTML=JSON.parse(localStorage.getItem('registration'));
+    // }
+
+    function resetData(){
+     message.classList.remove('red');
+     message.classList.add('green');
+     var t5 = setTimeout(function () { message.innerText= "Program has been reset succesfully";}, 0);
+    
+     var t6 =  setTimeout(function () {  message.innerText= ""; }, 3000) ;
+      
+     localStorage.clear();
+    location.reload();
 
     }
-
-  
