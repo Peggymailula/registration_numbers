@@ -38,7 +38,7 @@ function getUserReg(){
         displayTownElement.removeChild(displayTownElement.firstChild);
      }
 
-    var pattern1 = /^((CY|CL|CA|CAA)\- ([0-9]){4})$/; 
+    var pattern1 = /^((CY|CL|CA|CAA)\s\d ([0-9]){4})$/; 
     var pattern2 = /^((CY|CL|CA)\-([0-9]){3}\-([0-9]){3})$/;
     var pattern3 = /^((CY|CL|CA)\-([0-9]){6})$/;
     var pattern4 = /^((CY|CL|CA)\s([0-9]){6})$/;
@@ -106,14 +106,33 @@ towns.onchange = function() {
 
      var filterResults = regInstance.registrations(regAvailable);
    
-    if(regAvailable){
-        filterResults.forEach(displayRegNumbers);
-    }
+     if(regAvailable){
+            if (filterResults.length != 0) {
+                filterResults.forEach(displayRegNumbers);
+                
+            }
+            else {
+                displayTownElement.innerHTML =  "There are no registrations to display for this town";
+            
+        }
+            // console.log(newArray)
+            // displayTownElement.innerHTML =  "There are no registrations to display for this town";
+
+        
+        // else {
+        //     filterResults.forEach(displayRegNumbers);
+        // }
+            // displayTownElement.innerHTML =  "There are no registrations to display for this town";
+        }
+     
+
+    // if(regAvailable){
+    //     filterResults.forEach(displayRegNumbers);
+    //   //  console.log( filterResults.forEach(displayRegNumbers))
+    // }
     
 
-    else if (!regAvailable){
-        displayTownElement.innerHTML =  "There are no registrations to display for this town";
-    }
+    
     if(noReg=='All'){
         while (displayTownElement.firstChild) {
             displayTownElement.removeChild(displayTownElement.firstChild);
