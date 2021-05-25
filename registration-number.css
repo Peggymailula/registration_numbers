@@ -189,13 +189,14 @@ select {
     /* margin-left:-50px; */
    
     width: 12%;
-    padding: 15px;
+    padding: 8px;
     background-color:lightgrey;
     border: 5px solid black;
     text-decoration:  #fff;
     font-weight: bolder;
     border-radius: 8px;
     text-align: center;
+    font-size: small;
 }
 
 }
