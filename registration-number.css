@@ -18,17 +18,7 @@ h1{
 .textArea label {
  font-weight: bolder;
 }
-.test {
-    width: 400px;
-    background-color: #0c0f33;
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    margin: auto;
-    /* border: 10px solid #5e1d00;    */
-}
+
 .textArea .input {
     border: 1px solid #0c0f33;
     border-radius: 5px;

@@ -29,7 +29,6 @@ function displayRegNumbers(reg) {
     }
 userReg.forEach(displayRegNumbers);
 
-
 function getUserReg(){
     
    reg = inputTownElement.value;
@@ -70,12 +69,20 @@ function getUserReg(){
             }, 2000)      
         } else {
             if(regInstance.checkRegNumbers(reg)) {
-                        regInstance.regList(reg);
+                regInstance.regList(reg);
                         successMsgElement.innerHTML = 'Entry succesful!';
                         setTimeout(function(){
                             successMsgElement.innerHTML = "";
                         }, 3000) 
-                    }
+                    }else if(!regInstance.checkRegNumbers(reg)){
+                        errorMsg.classList.add('errors')
+
+                        errorMsg.innerHTML = "Incorrect format,please use correct format.";
+                        
+                        setTimeout(function(){
+                            errorMsg.innerHTML = "";
+                        }, 3000)             
+                  } 
             
         }
 
@@ -154,5 +161,3 @@ function reset(){
     
 }
 resetBtn.addEventListener("click", reset)
-
-
