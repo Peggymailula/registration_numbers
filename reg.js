@@ -1,4 +1,3 @@
-
 var inputTownElement = document.querySelector(".input");
 var addBtn = document.querySelector(".addButton");
 var resetBtn = document.querySelector(".resetBtn");
