@@ -34,7 +34,7 @@ h1{
     margin: auto;
 }
 
-.textInput .listButton {
+.textInput .listButton .input{
 display: block;
 width: 30%;
 float: left;
